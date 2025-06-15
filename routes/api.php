@@ -1,14 +1,9 @@
 <?php
 
-
-
-
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Cases\CasesController;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CasesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +26,5 @@ Route::get('/test', function () {
 
 
 // Register route
-Route::post('/register', [RegisterController::class, 'register'])->name('register');
-Route::get('/cases', [Controller::class, 'cases'])->name('cases');
-
-
+Route::post('/register', [RegisterController::class, 'register']);
+Route::get('/cases', [CasesController::class, 'index']);
