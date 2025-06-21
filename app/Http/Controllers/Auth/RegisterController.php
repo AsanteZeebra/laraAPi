@@ -22,6 +22,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required|string|min:6',
+            'role' => 'nullable|string|in:Admin,User,Manager,Reception,Security,HR,Accountant', // Optional role with specific values
         ]);
 
         if ($validator->fails()) {
@@ -33,6 +34,7 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role'=> $request->role ?? 'User', // Default role to 'user' if not provided
         ]);
 
         // Create token
