@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class cases extends Model
+class Passports extends Model
 {
     use HasFactory,HasApiTokens,Notifiable;
 
@@ -17,13 +17,13 @@ class cases extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-    'case_id',
-    'customer_name',
+    'client_id',
+    'fullname',
     'passport_no',
-    'country',
-    'application_type',
-    'tittle',
-    'message',
+    'nationality',
+    'issue_date',
+    'expiry_date',
+    'email',
     'status',
 ];
 

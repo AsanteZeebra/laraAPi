@@ -15,17 +15,17 @@ class CreateCasesTable extends Migration
     {
         Schema::create('cases', function (Blueprint $table) {
             $table->id();
-            $table->text('case_id');
-            $table->text('customer_name');
-            $table->text('passport_no');
-            $table->text('country');
-            $table->text('application_type');
-            $table->text('application_status');
-            $table->text('title');
-            $table->text('message');
+            $table->text('case_id')->nullable();
+            $table->text('customer_name')->nullable();
+            $table->text('passport_no')->nullable();
+            $table->text('country')->nullable();
+            $table->text('application_type')->nullable();
+            $table->text('application_status')->nullable();
+            $table->text('tittle')->nullable();
+            $table->text('message')->nullable();
             $table->date('deadline')->nullable();
             $table->text('assigned_to')->nullable();
-            $table->text('status'); // open, closed, pending
+            $table->text('status')->nullable(); // open, closed, pending
             // $table->text('priority')->default('normal'); // normal, high, low
             $table->timestamps();
         });

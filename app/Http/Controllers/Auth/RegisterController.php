@@ -22,7 +22,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required|string|min:6',
-            'role' => 'nullable|string|in:Admin,User,Manager,Reception,Security,HR,Accountant', // Optional role with specific values
+            'role' => 'required|string', // Remove invalid 'users' rule
         ]);
 
         if ($validator->fails()) {

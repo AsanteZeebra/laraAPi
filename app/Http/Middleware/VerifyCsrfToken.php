@@ -15,12 +15,7 @@ class VerifyCsrfToken extends Middleware
         'api/*', // Exclude all API routes from CSRF verification
 
 
-
-        'cases', // Exclude cases endpoint
-        'cases/*', // Exclude all cases related endpoints
-        'api/cases', // Exclude API cases endpoint
-        'api/cases/*', // Exclude all API cases related endpoints
-        'api/register', // Exclude API registration endpoint
-        'api/login', // Exclude API login endpoint
+        'api/register',
+        'api/add-client',
     ];
 }
