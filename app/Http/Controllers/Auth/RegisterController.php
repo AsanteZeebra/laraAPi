@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 
 class RegisterController extends Controller
@@ -29,12 +30,16 @@ class RegisterController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
+        // Generate IDs
+        $month_year = date('Ym');
+        $user_id = strtoupper('UD' . $month_year . Str::random(4));
         // Create user
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role'=> $request->role ?? 'User', // Default role to 'user' if not provided
+            'user_id' => $user_id, // Add user_id field
 
         ]);
 
