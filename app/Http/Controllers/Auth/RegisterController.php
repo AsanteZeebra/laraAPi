@@ -35,6 +35,7 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role'=> $request->role ?? 'User', // Default role to 'user' if not provided
+
         ]);
 
         // Create token
