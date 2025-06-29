@@ -15,7 +15,7 @@ class CreatePassportsTable extends Migration
     {
         Schema::create('passports', function (Blueprint $table) {
             $table->id();
-            $table->string('client_id')->nullable(); // Foreign key to clients table
+            $table->unsignedBigInteger('client_id')->nullable(); // Foreign key to clients table
             $table->string('fullname')->nullable(); // Full name of the passport holder
             $table->string('passport_no')->unique(); // Unique passport number
             $table->string('nationality')->nullable(); // Nationality of the passport holder

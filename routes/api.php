@@ -8,10 +8,10 @@ use App\Http\Controllers\CasesController;
 use App\Http\Controllers\CountCasesController;
 use App\Http\Controllers\AddClientController;
 use App\Http\Controllers\FetchClientsController;
-use App\Http\Controllers\FindCaseController;
-use App\Http\Controllers\RequestResetController;
-use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\FetchUsers;
+use App\Http\Controllers\RequestResetController;
+use App\Http\Controllers\Auth\NewPasswordController;
+
 
 
 /*
@@ -46,12 +46,9 @@ Route::middleware('auth:sanctum')->get('/count-cases', [CountCasesController::cl
 Route::middleware('auth:sanctum')->get('/case-percentage', [CountCasesController::class, 'index']);
 Route::middleware('auth:sanctum')->post('/add-client', [AddClientController::class, 'addClient']);
 Route::middleware('auth:sanctum')->get('/clients', [FetchClientsController::class, 'index']);
-Route::middleware('auth:sanctum')->delete('/clients/{id}', [AddClientController::class, 'destroy']);
-Route::middleware('auth:sanctum')->post('/find-case', [FindCaseController::class, 'findCase']);
-Route::middleware('auth:sanctum')->post('/client-info', [FindCaseController::class, 'clientinfo']);
-Route::middleware('auth:sanctum')->post('/request-reset', [RequestResetController::class, 'sendResetLinkEmail']);
-Route::middleware('auth:sanctum')->post('/reset-password', [ResetPasswordController::class, 'reset']);
 Route::middleware('auth:sanctum')->get('/fetch-users', [FetchUsers::class, 'fetcusers']);
+Route::middleware('auth:sanctum')->get('/fetch-user-by-id', [FetchUsers::class, 'fetch_user_by_id']);
+Route::middleware('auth:sanctum')->post('/send-reset-link', [RequestResetController::class, 'sendResetLink']);
 
 
 
