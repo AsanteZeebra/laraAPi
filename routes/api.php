@@ -10,7 +10,7 @@ use App\Http\Controllers\AddClientController;
 use App\Http\Controllers\FetchClientsController;
 use App\Http\Controllers\FetchUsers;
 use App\Http\Controllers\RequestResetController;
-use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\ResetPasswordController;
 
 
 
@@ -49,6 +49,7 @@ Route::middleware('auth:sanctum')->get('/clients', [FetchClientsController::clas
 Route::middleware('auth:sanctum')->get('/fetch-users', [FetchUsers::class, 'fetcusers']);
 Route::middleware('auth:sanctum')->get('/fetch-user-by-id', [FetchUsers::class, 'fetch_user_by_id']);
 Route::middleware('auth:sanctum')->post('/send-reset-link', [RequestResetController::class, 'sendResetLink']);
+Route::middleware('auth:sanctum')->post('/reset-password', [ResetPasswordController::class, 'reset']);
 
 
 
